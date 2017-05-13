@@ -4,16 +4,17 @@ const { visitAllNodes,
 
 describe('dom-util', () => {
 
-  describe('visitAllNodes()', () => {
+  describe('visitAllNodes() ', () => {
     it('visits the correct number of nodes', () => {
       const data = fs.readFileSync('./test/fixtures/broccoli.json', 'utf-8');
       const broccoli = JSON.parse(data);
-
       let count = 0;
       visitAllNodes(broccoli, () => {
         count++;
+
       });
       expect(count).toEqual(39);
+
     });
 
     it('performs an action on each node', () => {
@@ -46,6 +47,5 @@ describe('dom-util', () => {
       const nodes = flattenTreeToArray(broccoli);
       expect(nodes.length).toEqual(39);
     });
-  });
-
+     });
 });
